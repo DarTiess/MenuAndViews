@@ -78,6 +78,7 @@ namespace DefaultNamespace
 
         private void SwitchAudioSourceState(AudioSource audioSource)
         {
+            PlayClickSound();
             if (audioSource.isActiveAndEnabled)
             {
                 audioSource.enabled = false;
@@ -85,6 +86,14 @@ namespace DefaultNamespace
             else
             {
                 audioSource.enabled = true;
+            }
+        }
+
+        public void PlayClickSound()
+        {
+            if (_soundSource.isActiveAndEnabled)
+            {
+                _soundSource.Play();
             }
         }
     }

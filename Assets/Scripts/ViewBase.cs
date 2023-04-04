@@ -39,6 +39,10 @@ namespace DefaultNamespace
         private void OnClickButton(ViewButton viewButton)
         {
             viewButton.button.transform.DORotate(Vector3.up *_rotateAngle, _rotateDuration)
+                      .OnStart(() =>
+                      {
+                          _bootstraper.PlayClickSound();
+                      })
                       .OnComplete(() =>
                       {
                           _bootstraper.SwitchView(viewButton.destinationId);
